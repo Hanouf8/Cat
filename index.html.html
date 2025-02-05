@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>عداد الاستغفار</title>
+    <style>
+      /* إعادة الضبط العام */
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
+
+      body {
+          font-family: Arial, sans-serif;
+          background-color: #c32cd451;
+          text-align: center;
+          padding: 20px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          min-height: 100vh;
+      }
+
+      .container {
+          width: 100%;
+          max-width: 600px;
+          background-color: #f0f0f0c3;
+          padding: 20px;
+          border-radius: 10px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+          color: #c32cd4;
+          font-size: 2rem;
+          margin-bottom: 20px;
+      }
+
+      .counter {
+          font-size: 2em;
+          margin: 20px 0;
+          color: #c32cd4;
+      }
+
+      .cat {
+          width: 100%;
+          max-width: 600px;
+          height: 400px;
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+          margin: 20px auto;
+          transition: background-image 0.5s ease;
+      }
+
+      .description {
+          font-size: 1.2em;
+          color: #555;
+          margin: 10px 0;
+      }
+
+      .btn {
+          background-color: #1e0a2151;
+          color: white;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          font-size: 1em;
+          width: 100%;
+          max-width: 200px;
+          margin-top: 20px;
+      }
+
+      .btn:hover {
+          background-color: #3a05407c;
+      }
+
+      /* Media Queries للتكيف مع الشاشات الصغيرة */
+      @media (max-width: 600px) {
+          h1 {
+              font-size: 1.5rem;
+          }
+
+          .description {
+              font-size: 1em;
+          }
+
+          .cat {
+              height: 150px;
+          }
+
+          .btn {
+              font-size: 0.9em;
+              padding: 8px 16px;
+          }
+      }
+  </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>عداد الاستغفار لقطوط</h1>
+      <div
+        class="cat"
+        id="cat"
+        style="
+          background-image: url('https://media3.giphy.com/media/zxUB2HTNvC2By/200w.gif?cid=6c09b952i7kqdrr7c7rmycwm0a1txkatj980v7mq6x4gu3g9&ep=v1_gifs_search&rid=200w.gif&ct=g');
+        "
+      ></div>
+      <div class="description" id="description">
+        هذا "قطقوط" وهو بلا منزل ولا طعام ورائحته كجوارب حامد. اصبح هكذا بسبب
+        ادمانه على شراء التريت, الان قطقوط تاب وتعهد بعدم شراء واكل التريت مرة
+        اخرى, يمكنك مساعدة قطقوط بالاستغفار! كلما استغفرت أكثر، تتحسن حالته.
+      </div>
+      <div class="counter" id="counter">0</div>
+      <button class="btn" onclick="increaseCounter()">استغفر الله</button>
+    </div>
+
+    <script>
+      let count = 0;
+      const cat = document.getElementById("cat");
+      const counterElement = document.getElementById("counter");
+      const descriptionElement = document.getElementById("description");
+
+      function increaseCounter() {
+        count++;
+        counterElement.textContent = count;
+
+        // تغيير حالة القطة بناءً على عدد الاستغفارات
+        if (count >= 1 && count < 5) {
+          cat.style.backgroundImage =
+            "url('https://i.chzbgr.com/full/9033349632/hB253CA6A/cat-help-me-please-im-hungry-imgflipcom')"; // قطة تأكل
+          descriptionElement.textContent =
+            "قطقوط جائع ويريد ان يأكل شاورما بالثوم والكاتشب اللذيذ ! استمر في الاستغفار لمساعدته أكثر.";
+        } else if (count >= 5 && count < 10) {
+          cat.style.backgroundImage =
+            "url('https://media.tenor.com/RMBrWjoO5dUAAAAM/cat-eating-fast.gif')"; // قطة تأكل
+          descriptionElement.textContent =
+            "قطقوط بدأ يأكل الشاورما اللذيذة بالثوم والكاتشب ! استمر في الاستغفار لمساعدته أكثر.";
+        } else if (count >= 10 && count < 15) {
+          cat.style.backgroundImage =
+            "url('https://preview.redd.it/nbjkearvqoo41.jpg?width=640&crop=smart&auto=webp&s=2ec944f3ece71608bd701af8f962fd08b7e56bfc')"; // قطة سعيدة
+          descriptionElement.textContent =
+            "قطقوط أصبح عطش بعد تناول كل ذلك الثوم! استمر في الاستغفار لأعطاه الماء.";
+        } else if (count >= 15 && count < 20) {
+          cat.style.backgroundImage =
+            "url('https://ih1.redbubble.net/image.3791910896.7951/flat,750x,075,f-pad,750x1000,f8f8f8.jpg')"; // قطة في منزل
+          descriptionElement.textContent =
+            "قطقوط الآن سعيد ومرتوي! استمر في الاستغفار لمساعدته أكثر.";
+        } else if (count >= 20 && count < 25) {
+          cat.style.backgroundImage =
+            "url('https://media.makeameme.org/created/eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-a59d1be411.jpg')"; // قطة في منزل
+          descriptionElement.textContent =
+            "قطقوط يبدو متسخ! استمر في الاستغفار لمساعدته لاخذ شاور .";
+        } else if (count >= 25 && count < 30) {
+          cat.style.backgroundImage =
+            "url('https://media.tenor.com/HmY-0dFvYuAAAAAM/soggy-cat-cat.gif')"; // قطة في منزل
+          descriptionElement.textContent =
+            "قطقوط يبدو الان نظيف وجميل ما احلاه! استمر في الاستغفار لمساعدته اكثر .";
+        } else if (count >= 30 && count < 35) {
+          cat.style.backgroundImage =
+            "url('https://i.pinimg.com/originals/1e/0f/be/1e0fbee549a2ebb58428f633a0dbcde0.gif')"; // قطة في منزل
+          descriptionElement.textContent =
+            "قطقوط الان نعس ولكن ليس لديه منزل لينام به! استمر في الاستغفار لمساعدته اكثر .";
+        } else if (count >= 35 && count < 40) {
+          cat.style.backgroundImage =
+            "url('https://media3.giphy.com/media/26DNhB4wMjOfsNYIg/200w.gif?cid=6c09b952kcy5umshyrcl8f70l1z1zj48bcbafgocliz5s6x5&ep=v1_gifs_search&rid=200w.gif&ct=g')"; // قطة في منزل
+          descriptionElement.textContent =
+            "قطقوط يبحث عن منزل الان! استمر في الاستغفار لمساعدته اكثر .";
+        } else if (count >= 40 && count < 45) {
+          cat.style.backgroundImage =
+            "url('https://media3.giphy.com/media/4fDyJqlYYMkvK/giphy.gif?cid=6c09b95242h9j493a2f1mt64mitoxbh72gm7wgr2pwu4sjmx&ep=v1_gifs_search&rid=giphy.gif&ct=g')"; // قطة في منزل
+          descriptionElement.textContent =
+            "رائع! قطوط وجد منزل مناسب! استمر في الاستغفار لمساعدته اكثر .";
+        } else if (count >= 45 && count < 50) {
+          cat.style.backgroundImage =
+            "url('https://media0.giphy.com/media/8mqyNUDRxYxAUOEydi/giphy.gif?cid=6c09b952ikr5ieytbczrrf8i1qhlp4fe37aadvbf2diey2e9&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g')"; // قطة في منزل
+          descriptionElement.textContent =
+            "اللعنة! انقطعت الكهرباء لعدم التسديد! استمر في الاستغفار لمساعدة قطقوط البحث عن وظيفة .";
+        } else if (count >= 50 && count < 55) {
+          cat.style.backgroundImage =
+            "url('https://media3.giphy.com/media/26DNhB4wMjOfsNYIg/200w.gif?cid=6c09b952kcy5umshyrcl8f70l1z1zj48bcbafgocliz5s6x5&ep=v1_gifs_search&rid=200w.gif&ct=g')"; // قطة في منزل
+          descriptionElement.textContent =
+            "قطقوط رجع للشارع للبحث عن وظيفة! استمر في الاستغفار لمساعدة قطقوط البحث عن وظيفة .";
+        } else if (count >= 55 && count < 60) {
+          cat.style.backgroundImage =
+            "url('https://media.giphy.com/media/13HBDT4QSTpveU/giphy.gif')"; // قطة في منزل
+          descriptionElement.textContent =
+            "رائع ! قطقوط وجد وظيفة تناسب امكانياته والان هو مبرمج مواقع صباحا في شركة قوقل وهكر غير اخلاقي مساءا, استمر في الاستغفار لمساعدة قطقوط الرجوع للمنزل والنوم .";
+        } else if (count >= 60 && count < 65) {
+          cat.style.backgroundImage =
+            "url('https://media.tenor.com/x8TEZ2nemjMAAAAM/waking-up-cat.gif')"; // قطة في منزل
+          descriptionElement.textContent =
+            "رائع ! قطقوط  اصبح بسريره مستقر نائم , ولكن لحظة !!!!!!!!!!!! .";
+        } else if (count >= 65 && count < 70) {
+          cat.style.backgroundImage =
+            "url('https://media.tenor.com/btYkcmAPyCcAAAAM/cat-flabbergasted.gif')"; // قطة في منزل
+          descriptionElement.textContent =
+            "قطقوط تذكر انه لم يصلي العشا ! ساعد قطقوط على الصلاة ";
+        } else if (count >= 70 && count < 75) {
+          cat.style.backgroundImage =
+            "url('https://i.pinimg.com/550x/7c/aa/10/7caa10356a4138dec9cd265c4301b824.jpg')"; // قطة في منزل
+          descriptionElement.textContent =
+            "رائع ! قطوط يصلي الان , استمر بالاستغفار لمساعدته على النوم ";
+        } else if (count >= 75 && count < 80) {
+          cat.style.backgroundImage =
+            "url('https://media.tenor.com/BaCPsmyAmSMAAAAM/sleep-cat.gif')"; // قطة في منزل
+          descriptionElement.textContent =
+            " رائع ! قطوط في سريره الان يستمع الى اغنية حديقة المرح, شكرا لك على مساعدة قطقوط ";
+        } else if ( count >= 80){
+        cat.style.backgroundImage =
+          "url('https://media.tenor.com/6oVpxIFwAAoAAAAM/cat-kiss.gif')"; // قطة في منزل
+        descriptionElement.textContent =
+          "قطقوط يرسل تحياته لك ويشكرك على مساعدته ";}
+      }
+    </script>
+  </body>
+</html>
